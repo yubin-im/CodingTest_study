@@ -1,0 +1,6 @@
+SELECT DISTINCT d.ID, d.EMAIL, d.FIRST_NAME, d.LAST_NAME
+FROM SKILLCODES s
+JOIN DEVELOPERS d
+ON (s.CODE & d.SKILL_CODE) > 0  # 비트 연산자 & 사용해서 비교, 0> 공통비트가 존재할 경우
+WHERE s.NAME = 'Python' OR s.NAME = 'C#'
+ORDER BY d.ID;
